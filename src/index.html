@@ -11,14 +11,19 @@
     <title>Project tracking intro component</title>
   </head>
   <body
-    class="relative grid place-items-center overflow-x-hidden font-['Barlow_Condensed']"
+    class="relative grid place-content-center place-items-center overflow-x-hidden font-['Barlow_Condensed'] xl:max-w-[90rem]"
   >
     <div class="absolute top-0 right-0">
-      <img src="../images/bg-shape-mobile.svg" alt="" />
+      <img class="xl:hidden" src="../images/bg-shape-mobile.svg" alt="" />
+      <img
+        class="hidden xl:block"
+        src="../images/bg-shape-desktop.svg"
+        alt=""
+      />
     </div>
     <nav
-      id="mobile-nav"
-      class="absolute top-[6.25rem] left-[8.53vw] z-20 flex w-[19.438rem] flex-col items-center gap-6 rounded-[3px] bg-white p-6 text-center shadow-[0px_5px_10px_0px_rgba(0,0,0,0.15)]"
+      id="mobileNav"
+      class="pointer-events-none absolute top-[6.25rem] left-[8.53vw] z-20 flex w-[82.93vw] scale-0 flex-col items-center gap-6 rounded-[3px] bg-white p-6 text-center opacity-0 shadow-[0px_5px_10px_0px_rgba(0,0,0,0.15)] transition-[opacity,_transform] duration-300 ease-in xl:hidden"
     >
       <ul class="flex flex-col items-center gap-6 text-center">
         <li>
@@ -50,28 +55,77 @@
         >Login</a
       >
     </nav>
-    <header class="z-10 mx-auto mb-16 mt-[2.375rem] w-[19.438rem]">
-      <div class="relative flex w-full items-center justify-between">
+    <header
+      class="z-10 mx-auto mb-16 mt-[2.375rem] w-[19.438rem] xl:mb-[7.75rem] xl:w-[69.375rem]"
+    >
+      <nav class="hidden items-center xl:flex">
+        <a class="mr-auto" href="#" aria-label="home">
+          <img src="../images/logo.svg" alt=""
+        /></a>
+        <div class="flex items-center">
+          <ul class="mr-10 flex items-center gap-[2.625rem]">
+            <li>
+              <a
+                class="text-[0.938rem] font-bold uppercase leading-[1.125rem] tracking-[1px] text-[#242942] decoration-1 hover:underline hover:underline-offset-1"
+                href="#"
+                >Product</a
+              >
+            </li>
+            <li>
+              <a
+                class="text-[0.938rem] font-bold uppercase leading-[1.125rem] tracking-[1px] text-[#242942] decoration-1 hover:underline hover:underline-offset-1"
+                href="#"
+                >Features</a
+              >
+            </li>
+            <li>
+              <a
+                class="text-[0.938rem] font-bold uppercase leading-[1.125rem] tracking-[1px] text-[#242942] decoration-1 hover:underline hover:underline-offset-1"
+                href="#"
+                >Pricing</a
+              >
+            </li>
+          </ul>
+          <div
+            class="mr-[2.938rem] h-[0.375rem] w-[0.375rem] rounded-full bg-[#242942]/[0.15]"
+          ></div>
+          <a
+            class="text-[0.938rem] font-bold uppercase leading-[1.125rem] tracking-[1px] text-[#242942]/50 decoration-1 hover:underline hover:underline-offset-1"
+            href="#"
+            >Login</a
+          >
+        </div>
+      </nav>
+      <div class="relative flex w-full items-center justify-between xl:hidden">
         <a class="h-6 w-6" href="#" aria-label="home">
           <img src="../images/logo.svg" alt="" />
         </a>
-        <button class="absolute right-0" type="button">
+        <button
+          id="openNav"
+          class="absolute right-0 transition-[opacity,_transform] duration-300 ease-in"
+          type="button"
+        >
           <img src="../images/icon-hamburger.svg" alt="" />
         </button>
         <button
-          class="pointer-events-none absolute right-[0.125rem] opacity-0"
+          id="closeNav"
+          class="pointer-events-none absolute right-[0.125rem] scale-0 opacity-0 transition-[opacity,_transform] duration-300 ease-in"
           type="button"
         >
           <img src="../images/icon-close.svg" alt="" />
         </button>
       </div>
     </header>
-    <main class="z-10 mx-auto mb-[5.75rem] w-[19.438rem]">
-      <div class="mb-[5.438rem] h-[14.938rem] w-[30.125rem]">
+    <main
+      class="relative z-10 mx-auto mb-[5.75rem] w-[19.438rem] xl:mb-[13.063rem] xl:flex xl:h-[28.438rem] xl:w-[69.375rem] xl:items-center"
+    >
+      <div
+        class="mb-[5.438rem] h-[14.938rem] w-[30.125rem] xl:absolute xl:left-[36.438rem] xl:top-0 xl:h-[28.438rem] xl:w-[57.25rem]"
+      >
         <img src="../images/illustration-devices.svg" alt="" />
       </div>
-      <div class="flex flex-col items-start">
-        <div class="mb-4 flex items-center gap-4">
+      <div class="flex flex-col items-start xl:w-[29.375rem]">
+        <div class="mb-4 flex items-center gap-4 xl:gap-[0.938rem]">
           <p
             class="flex h-[1.563rem] w-12 items-center justify-center rounded-[12.5px] bg-[#242942] text-[0.938rem] font-bold uppercase leading-[1.125rem] tracking-[1px] text-white"
           >
@@ -84,28 +138,29 @@
           </p>
         </div>
         <h1
-          class="mb-4 text-[2.5rem] font-bold uppercase leading-[2.5rem] tracking-normal text-[#242942]"
+          class="mb-4 text-[2.5rem] font-bold uppercase leading-[2.5rem] tracking-normal text-[#242942] xl:mb-8 xl:text-[4rem] xl:leading-[4rem]"
         >
           Powerful insights into your team
         </h1>
         <p
-          class="mb-[1.688rem] w-[16.688rem] font-['Barlow'] text-lg font-normal leading-[1.625rem] tracking-normal text-[#242942]/75"
+          class="mb-[1.688rem] w-[16.688rem] font-['Barlow'] text-lg font-normal leading-[1.625rem] tracking-normal text-[#242942]/75 xl:mb-16"
         >
           Project planning and time tracking for agile teams
         </p>
         <div class="flex items-center gap-5">
           <a
-            class="flex h-10 w-[9.563rem] items-center justify-center rounded-[5px] bg-[#FF5E5E] text-[0.875rem] font-bold uppercase leading-[1.063rem] tracking-[0.93px] text-white"
+            class="flex h-10 w-[9.563rem] items-center justify-center rounded-[5px] bg-[#FF5E5E] text-[0.875rem] font-bold uppercase leading-[1.063rem] tracking-[0.93px] text-white hover:bg-[#FF5E5E]/75 xl:h-12 xl:w-[11.5rem] xl:text-base xl:leading-[1.188rem] xl:tracking-[1.07px]"
             href="#schedule-demo"
             >Schedule a demo</a
           >
           <p
-            class="text-[0.875rem] font-normal uppercase leading-[1.063rem] tracking-[2.5px] text-[#242942]/50"
+            class="text-[0.875rem] font-normal uppercase leading-[1.063rem] tracking-[2.5px] text-[#242942]/50 xl:text-[0.938rem] xl:leading-[1.125rem] xl:tracking-[5px]"
           >
             To see a preview
           </p>
         </div>
       </div>
     </main>
+    <script src="script.js"></script>
   </body>
 </html>
